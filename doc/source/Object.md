@@ -12,6 +12,8 @@
     3. public final void wait(long timeout, int nanos) throws InterruptedException：第一个参数和wait(long timeout)一样，第二个参数如果大于0，timeout会++，然后调用wait(long timout)
     4. public final void wait() throws InterruptedException：调用wait(long timeout)，参数是0
     5. protected void finalize() throws Throwable：方法体为空
+3. 静态代码块
+    1. 执行了 registerNatives() 方法
 
 
   
