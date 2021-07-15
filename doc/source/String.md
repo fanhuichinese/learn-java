@@ -21,3 +21,10 @@
     3. public String(char value[]) { this.value = Arrays.copyOf(value, value.length); }
     4. public String(char value[], int offset, int count) { /** 判断越界 */ this.value = Arrays.copyOfRange(value, offset, offset+count); }
     5. public String(int[] codePoints, int offset, int count) { /** 类似于上面的构造器，除了判断越界，还判断数组中的整数是否是合法的字符，最后数组的元素数量还可能会大于count */ }
+    6. public String(byte bytes[], int offset, int length, String charsetName) { /** 判断越界和字符集 */ this.value = StringCoding.decode(charsetName, bytes, offset, length); }
+    7. public String(byte bytes[], int offset, int length, Charset charset)：类似上面的构造器
+    8. public String(byte bytes[], String charsetName) throws UnsupportedEncodingException { this(bytes, 0, bytes.length, charsetName); }
+    9. public String(byte bytes[], Charset charset) { this(bytes, 0, bytes.length, charset); }
+    10. public String(byte bytes[], int offset, int length) { /** 判断越界 */ this.value = StringCoding.decode(bytes, offset, length); }
+    11. public String(byte bytes[]) { this(bytes, 0, bytes.length); }
+    12. public String(StringBuffer buffer) { /** 线程同步的*/ synchronized(buffer) { this.value = Arrays.copyOf(buffer.getValue(), buffer.length()); } }
