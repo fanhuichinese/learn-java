@@ -27,4 +27,7 @@
     9. public String(byte bytes[], Charset charset) { this(bytes, 0, bytes.length, charset); }
     10. public String(byte bytes[], int offset, int length) { /** 判断越界 */ this.value = StringCoding.decode(bytes, offset, length); }
     11. public String(byte bytes[]) { this(bytes, 0, bytes.length); }
-    12. public String(StringBuffer buffer) { /** 线程同步的*/ synchronized(buffer) { this.value = Arrays.copyOf(buffer.getValue(), buffer.length()); } }
+    12. public String(StringBuffer buffer) { /** 线程安全的*/ synchronized(buffer) { this.value = Arrays.copyOf(buffer.getValue(), buffer.length()); } }
+    13. public String(StringBuilder builder) { /** 线程不安去的 */ this.value = Arrays.copyOf(builder.getValue(), builder.length()); }
+    14. String(char[] value, boolean share) { this.value = value; }
+    15. private static void checkBounds(byte[] bytes, int offset, int length)：判断越界的方法
