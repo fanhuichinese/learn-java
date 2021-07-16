@@ -39,3 +39,4 @@
     6. public int codePointBefore(int index) { /** 判断越界 */ return Character.codePointBeforeImpl(value, index, 0); }：获取对应位置的前一个元素的Unicode码
     7. public int codePointCount(int beginIndex, int endIndex) { /** 判断越界 */ return Character.codePointCountImpl(value, beginIndex, endIndex - beginIndex); }：获取该范围内的Unicode点（有Unicode码的元素）的数量
     8. public int offsetByCodePoints(int index, int codePointOffset)：不解
+    9. void getChars(char dst[], int dstBegin) { System.arraycopy(value, 0, dst, dstBegin, value.length); }
