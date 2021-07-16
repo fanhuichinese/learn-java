@@ -41,3 +41,14 @@
     8. public int offsetByCodePoints(int index, int codePointOffset)：不解
     9. void getChars(char dst[], int dstBegin) { System.arraycopy(value, 0, dst, dstBegin, value.length); }
     10. public void getChars(int srcBegin, int srcEnd, char dst[], int dstBegin) { /** 判断越界 */ System.arraycopy(value, srcBegin, dst, dstBegin, srcEnd - srcBegin); }
+    11. public byte[] getBytes(String charsetName) throws UnsupportedEncodingException {
+            if (charsetName == null) throw new NullPointerException();
+            return StringCoding.encode(charsetName, value, 0, value.length);
+        }
+    12. public byte[] getBytes(Charset charset) {
+            if (charset == null) throw new NullPointerException();
+            return StringCoding.encode(charset, value, 0, value.length);
+        }
+    13. public byte[] getBytes() {
+            return StringCoding.encode(value, 0, value.length);
+        }
