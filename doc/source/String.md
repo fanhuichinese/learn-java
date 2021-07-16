@@ -37,3 +37,4 @@
     4. public char charAt(int index) { /** 判断越界 */ return value[index]; }
     5. public int codePointAt(int index) { /** 判断越界 */ return Character.codePointAtImpl(value, index, value.length); }：获取对应位置元素的Unicode码
     6. public int codePointBefore(int index) { /** 判断越界 */ return Character.codePointBeforeImpl(value, index, 0); }：获取对应位置的前一个元素的Unicode码
+    7. public int codePointCount(int beginIndex, int endIndex) { /** 判断越界 */ return Character.codePointCountImpl(value, beginIndex, endIndex - beginIndex); }：获取该范围内的Unicode点（有Unicode码的元素）的数量
