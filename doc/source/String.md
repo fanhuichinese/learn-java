@@ -34,3 +34,4 @@
     1. private static void checkBounds(byte[] bytes, int offset, int length)：判断越界的方法
     2. public int length() { return value.length; }
     3. public boolean isEmpty() { return value.length == 0; }
+    4. public char charAt(int index) { /** 判断越界 */ return value[index]; }
