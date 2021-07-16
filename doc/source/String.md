@@ -32,3 +32,5 @@
     14. String(char[] value, boolean share) { this.value = value; }
 5. 方法
     1. private static void checkBounds(byte[] bytes, int offset, int length)：判断越界的方法
+    2. public int length() { return value.length; }
+    3. public boolean isEmpty() { return value.length == 0; }
